@@ -1,0 +1,35 @@
+diff --git a/drivers/rtl8812au/os_dep/linux/ioctl_cfg80211.h b/drivers/rtl8812au/os_dep/linux/ioctl_cfg80211.h
+index 6775480..6113bff 100644
+--- a/drivers/rtl8812au/os_dep/linux/ioctl_cfg80211.h
++++ b/drivers/rtl8812au/os_dep/linux/ioctl_cfg80211.h
+@@ -388,7 +388,7 @@ void rtw_cfg80211_deinit_rfkill(struct wiphy *wiphy);
+ 
+ #define rtw_cfg80211_connect_result(wdev, bssid, req_ie, req_ie_len, resp_ie, resp_ie_len, status, gfp) cfg80211_connect_result(wdev_to_ndev(wdev), bssid, req_ie, req_ie_len, resp_ie, resp_ie_len, status, gfp)
+ 
+-#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 2, 0))
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 18, 0))
+ #define rtw_cfg80211_disconnected(wdev, reason, ie, ie_len, locally_generated, gfp) cfg80211_disconnected(wdev_to_ndev(wdev), reason, ie, ie_len, gfp)
+ #else
+ #define rtw_cfg80211_disconnected(wdev, reason, ie, ie_len, locally_generated, gfp) cfg80211_disconnected(wdev_to_ndev(wdev), reason, ie, ie_len, locally_generated, gfp)
+diff --git a/drivers/rtl8812au/os_dep/linux/rtw_cfgvendor.c b/drivers/rtl8812au/os_dep/linux/rtw_cfgvendor.c
+index d906163..68c3282 100644
+--- a/drivers/rtl8812au/os_dep/linux/rtw_cfgvendor.c
++++ b/drivers/rtl8812au/os_dep/linux/rtw_cfgvendor.c
+@@ -45,7 +45,7 @@ struct sk_buff *dbg_rtw_cfg80211_vendor_event_alloc(struct wiphy *wiphy, struct
+ 	struct sk_buff *skb;
+ 	unsigned int truesize = 0;
+ 
+-#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 1, 0))
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 18, 0))
+ 	skb = cfg80211_vendor_event_alloc(wiphy, len, event_id, gfp);
+ #else
+ 	skb = cfg80211_vendor_event_alloc(wiphy, wdev, len, event_id, gfp);
+@@ -144,7 +144,7 @@ struct sk_buff *rtw_cfg80211_vendor_event_alloc(
+ {
+ 	struct sk_buff *skb;
+ 
+-#if (LINUX_VERSION_CODE < KERNEL_VERSION(4, 1, 0))
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(3, 18, 0))
+ 	skb = cfg80211_vendor_event_alloc(wiphy, len, event_id, gfp);
+ #else
+ 	skb = cfg80211_vendor_event_alloc(wiphy, wdev, len, event_id, gfp);
