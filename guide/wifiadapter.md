@@ -2,18 +2,21 @@
 `Mominul Islam Hemal`
 
 Kali NetHunter is a free and open-source mobile penetration testing platform for Android devices, based on Kali Linux. Kali NetHunter is available for un-rooted devices, for rooted devices that have a custom recovery, and for rooted devices with custom recovery for which a NetHunter specific kernel is available. 
+#### `Here is our workplan`:
+```sh
+├── Apply frame injection patch
+├── Remove Unnecessary files
+├── Add Wifi Drivers 
+├── Compile & Fix Errors 
+```     
+#### `STEP-2:` Remove Unnecessary Files
 
-#### `STEP-1:` Removing Unnecessary Files
-
-1.At first we have to remove the original RTL8188EU drivers from the kernel source(Only for V4.14 and upper version kernel.Skip it if your kernel is lower than v4).
-
-For this follow these steps:
-
-a) Go to `yourkernel_directory/drivers/staging` folder.Now run this command.It will remove rtl8188eu driver folder that may collide with our driver.
+1.We have to remove the original RTL8188EU drivers from the kernel source.(if we want to add `RTL8188EUS` as inbuilt,not as module)
+- Go to `kernel_directory/drivers/staging` folder.For example: `fenix` is my kernel_directory.
 
 `rm -r rtl8188eu`
 
-b) Now, We will edit Makefile and Kconfig of staging directory.
+- Now, We will edit `Makefile` and `Kconfig` of `staging` directory.
 
 Search this line and delete it from the file and save .
 
@@ -27,14 +30,16 @@ Now comes the part of editing Kconfig file .To edit Kconfig, Give this Command i
 nano Kconfig
 Search this line and delete it from the file and save .
 
-`source "drivers/staging/rtl8188eu/Kconfig"`
+```sh
+source "drivers/staging/rtl8188eu/Kconfig"
+```
 
 <p align="center"><img src="https://raw.githubusercontent.com/CaliBerrr/LinuxArchive/main/image/IMG_20210102_235147-01.jpeg" width="500"/></p>
 
 Remove from Kconfig
 STEP-2:Add Kimcoders Aircrack RTL8188eus driver
 
-a)Go to `yourkernel_directory/Drivers folder`.Git clone the drivers in kernel source using below command.
+a)Go to `kernel_directory/Drivers folder`.Git clone the drivers in kernel source using below command.
 ```sh
 #rtl8188eus driver
 git clone --depth=1 https://github.com/aircrack-ng/rtl8188eus -b v5.3.9
