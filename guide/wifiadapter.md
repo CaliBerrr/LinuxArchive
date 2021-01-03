@@ -53,7 +53,7 @@ Add this line in Makefile and save it.
 obj-$(CONFIG_RTL8188EU) += rtl8188eus/
 obj-$(CONFIG_88XXAU)    += rtl8812au/
 ```
-<p align="center"><img src="https://github.com/CaliBerrr/LinuxArchive/blob/main/image/IMG_20210102_235118-01.jpeg" width="500"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/CaliBerrr/LinuxArchive/main/image/IMG_20210102_235118-01.jpeg" width="500"/></p>
                         
 Add in Makefile
 Now add this line in Kconfig File and save it.
@@ -67,7 +67,7 @@ source "drivers/rtl8812au/Kconfig"
 
 ```
 
-<p align="center"><img src="https://github.com/CaliBerrr/LinuxArchive/blob/main/image/IMG_20210102_235040-01.jpeg" width="500"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/CaliBerrr/LinuxArchive/main/image/IMG_20210102_235040-01.jpeg" width="500"/></p>
 
 Add in Kconfig
 We have Successfully Added the driver in our source.
