@@ -1,0 +1,1 @@
+Kali NetHunter is a free and open-source mobile penetration testing platform for Android devices, based on Kali Linux. Kali NetHunter is available for un-rooted devices, for rooted devices that have a custom recovery, and for rooted devices with custom recovery for which a NetHunter specific kernel is available. 
