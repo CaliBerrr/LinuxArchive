@@ -19,8 +19,8 @@ Search this line and delete it from the file and save .
 
 `obj-$(CONFIG_R8188EU) += rtl8188eu/`
 
+<p align="center"><img src="image/IMG_20210102_235214-01.jpeg"></img></p>
 
-![RemoveMakefile](/image/IMG_20210102_235214-01.jpeg)
 
 Remove it
 Now comes the part of editing Kconfig file .To edit Kconfig, Give this Command in the present directory.
@@ -30,7 +30,7 @@ Search this line and delete it from the file and save .
 
 `source "drivers/staging/rtl8188eu/Kconfig"`
 
-![RemoveKconfig](/image/IMG_20210102_235147-01.jpeg)
+<p align="center"><img src="image/IMG_20210102_235147-01.jpeg"></img></p>
 
 Remove from Kconfig
 STEP-2:Add Kimcoders Aircrack RTL8188eus driver
@@ -54,8 +54,8 @@ Add this line in Makefile and save it.
 obj-$(CONFIG_RTL8188EU) += rtl8188eus/
 obj-$(CONFIG_88XXAU)    += rtl8812au/
 ```
-![Makefile](/image/IMG_20210102_235118-01.jpeg)
-                         
+<p align="center"><img src="image/IMG_20210102_235118-01.jpeg"></img></p>
+                        
 Add in Makefile
 Now add this line in Kconfig File and save it.
 
@@ -67,7 +67,8 @@ source "drivers/rtl8188eus/Kconfig"
 source "drivers/rtl8812au/Kconfig"
 
 ```
-![Kconfig File](/image/IMG_20210102_235040-01.jpeg)
+
+<p align="center"><img src="image/IMG_20210102_235040-01.jpeg"></img></p>
 
 Add in Kconfig
 We have Successfully Added the driver in our source.
