@@ -1,17 +1,18 @@
-#### [GUIDE]How to add RTL8188eus Driver in your Nethunter Android Kernel(Injection + Monitor Mode Enabled) [TpLink TL-Wn722n V2/3]
+#### [GUIDE]How To Add Wifi Drivers in Android NetHunter Kernel(RTL8188EUS,RTL8812AU)
 `Mominul Islam Hemal`
 
 Kali NetHunter is a free and open-source mobile penetration testing platform for Android devices, based on Kali Linux. Kali NetHunter is available for un-rooted devices, for rooted devices that have a custom recovery, and for rooted devices with custom recovery for which a NetHunter specific kernel is available. 
 
-STEP-1:Removing Unnecessary Files
+#### `STEP-1:` Removing Unnecessary Files
 
 1.At first we have to remove the original RTL8188EU drivers from the kernel source(Only for V4.14 and upper version kernel.Skip it if your kernel is lower than v4).
 
 For this follow these steps:
 
-a) Go to yourkernel_directory/drivers/staging folder.Now run this command.It will remove rtl8188eu driver folder that may collide with our driver.
+a) Go to `yourkernel_directory/drivers/staging` folder.Now run this command.It will remove rtl8188eu driver folder that may collide with our driver.
 
 `rm -r rtl8188eu`
+
 b) Now, We will edit Makefile and Kconfig of staging directory.
 
 Search this line and delete it from the file and save .
@@ -29,8 +30,7 @@ Search this line and delete it from the file and save .
 Remove from Kconfig
 STEP-2:Add Kimcoders Aircrack RTL8188eus driver
 
-a)Go to yourkernel_directory/Drivers folder.Execute this Command to Clone RTL8188EUS DIRVER in your source.It will clone the driver in your source.
-
+a)Go to `yourkernel_directory/Drivers folder`.Git clone the drivers in kernel source using below command.
 ```sh
 #rtl8188eus driver
 git clone --depth=1 https://github.com/aircrack-ng/rtl8188eus -b v5.3.9
@@ -58,6 +58,7 @@ Now add this line in Kconfig File and save it.
 source "drivers/rtl8188eus/Kconfig"
 
 source "drivers/rtl8812au/Kconfig"
+
 ```
 Add in Kconfig
 We have Successfully Added the driver in our source.
